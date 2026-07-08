@@ -1,4 +1,9 @@
-const API_BASE = import.meta.env.VITE_API_URL || '';
+const DEFAULT_PROD_API = 'https://wenshu-server.onrender.com';
+const isLocalhost = typeof window !== 'undefined' && (
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '127.0.0.1'
+);
+const API_BASE = import.meta.env.VITE_API_URL || (isLocalhost ? '' : DEFAULT_PROD_API);
 
 export function getApiUrl(path: string): string {
   if (!path) return '';
