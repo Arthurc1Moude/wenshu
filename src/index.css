@@ -15,6 +15,34 @@
   box-shadow: none !important;
 }
 
+.bg-gray-50, .bg-gray-100, .bg-gray-200, .bg-zinc-50, .bg-zinc-100, .bg-slate-50, .bg-slate-100, .bg-neutral-50, .bg-neutral-100, .bg-stone-50, .bg-stone-100 {
+  background-color: #FAFAF8 !important;
+}
+
+button:not(.no-radius) {
+  border-radius: 2px !important;
+}
+
+.rounded-xl, .rounded-2xl, .rounded-3xl, .rounded-lg {
+  border-radius: 2px !important;
+}
+
+.card, .card * {
+  border-radius: 2px !important;
+}
+
+.text-gray-500, .text-gray-600, .text-zinc-500, .text-zinc-600, .text-slate-500, .text-slate-600, .text-neutral-500, .text-neutral-600 {
+  color: #888 !important;
+}
+
+input, textarea, select, button, p, span, h1, h2, h3, h4, h5, h6, div {
+  font-family: "Noto Serif SC", "Songti SC", "Source Han Serif SC", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", serif !important;
+}
+
+code, pre {
+  font-family: "Noto Serif SC", "Songti SC", monospace !important;
+}
+
 .pb-safe {
   padding-bottom: var(--safe-bottom);
 }
