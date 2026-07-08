@@ -1,4 +1,5 @@
 import { Crown } from 'lucide-react';
+import { getApiUrl } from '../../utils/api';
 
 interface AvatarProps {
   src?: string;
@@ -17,10 +18,11 @@ const sizeMap = {
 };
 
 export default function Avatar({ src, username = '?', size = 'md', isVip, vipLevel, className = '' }: AvatarProps) {
+  const imgSrc = src ? getApiUrl(src) : `https://ui-avatars.com/api/?name=${encodeURIComponent(username)}&background=000&color=fff&size=200&bold=true`;
   return (
     <div className={`relative inline-block ${className}`}>
       <div className={`${sizeMap[size]} rounded-full overflow-hidden bg-gray-200 ring-2 ring-white`}>
-        <img src={src || `https://ui-avatars.com/api/?name=${encodeURIComponent(username)}&background=000&color=fff&size=200&bold=true`} alt={username} className="w-full h-full object-cover" />
+        <img src={imgSrc} alt={username} className="w-full h-full object-cover" />
       </div>
       {isVip && (
         <div className="absolute -bottom-0.5 -right-0.5 bg-gold rounded-full w-4 h-4 flex items-center justify-center ring-2 ring-white">

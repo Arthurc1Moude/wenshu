@@ -6,6 +6,7 @@ import { useStore } from '@/store';
 import { Coins, Calendar, Edit3, Heart, Bookmark, FileText, Users, UserPlus, Check, ChevronRight } from 'lucide-react';
 import PostCard from '@/components/post/PostCard';
 import { formatNumber } from '@/utils/format';
+import { getApiUrl } from '@/utils/api';
 
 export default function ProfilePage() {
   const { currentUser, isLoggedIn, signIn, loadPostsByUser, loadLikedPosts, loadSavedPosts, joinQQGroup } = useStore();
@@ -57,7 +58,7 @@ export default function ProfilePage() {
       <TopBar title="我的" showSettings />
 
       <div className="relative h-40 bg-gradient-to-br from-gray-100 to-gray-200">
-        <img src={currentUser.cover || `https://picsum.photos/seed/cover${currentUser.id}/800/320`} alt="cover" className="w-full h-full object-cover" />
+        <img src={getApiUrl(currentUser.cover) || `https://picsum.photos/seed/cover${currentUser.id}/800/320`} alt="cover" className="w-full h-full object-cover" />
       </div>
 
       <div className="px-4 -mt-10 relative">

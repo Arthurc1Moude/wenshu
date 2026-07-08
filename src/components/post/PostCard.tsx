@@ -6,6 +6,7 @@ import Avatar from '@/components/ui/Avatar';
 import type { Post } from '@/types';
 import { useStore } from '@/store';
 import { formatTime } from '@/utils/format';
+import { getApiUrl } from '@/utils/api';
 
 interface PostCardProps {
   post: Post;
@@ -34,7 +35,7 @@ export default function PostCard({ post, index = 0 }: PostCardProps) {
       <div className={`grid ${gridClass} gap-1 mt-3`}>
         {post.images.slice(0, 9).map((img, i) => (
           <div key={i} className={`relative overflow-hidden bg-gray-100 ${count === 1 ? 'aspect-[4/3] rounded-xl' : 'aspect-square rounded-lg'}`}>
-            <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" />
+            <img src={getApiUrl(img)} alt="" className="w-full h-full object-cover" loading="lazy" />
             {i === 0 && post.tags && post.tags.length > 0 && post.tags[0] && (
               <div className="absolute top-2 left-2 flex items-center gap-1">
                 {post.tags.slice(0, 1).map(tag => (

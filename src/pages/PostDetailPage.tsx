@@ -7,6 +7,7 @@ import { useStore } from '@/store';
 import { formatTime } from '@/utils/format';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Post, Comment } from '@/types';
+import { getApiUrl } from '@/utils/api';
 
 export default function PostDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -110,7 +111,7 @@ export default function PostDetailPage() {
         {post.images.length > 0 && (
           <div className="mt-4 space-y-2">
             {post.images.map((img, i) => (
-              <img key={i} src={img} alt="" className="w-full rounded-xl object-cover max-h-[500px]" onDoubleClick={handleDoubleTap} />
+              <img key={i} src={getApiUrl(img)} alt="" className="w-full rounded-xl object-cover max-h-[500px]" onDoubleClick={handleDoubleTap} />
             ))}
           </div>
         )}
